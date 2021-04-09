@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+    <style>
+        .background {background-color: white;}
+        .leftside { float: left;}
+        .rightside {float: right;}
+        .hover_btn:hover {background-color: indianred;}
+        .font_center {font-weight:bold; text-align: center;}
+        .font_head { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: larger;}
+        .font_main { font-family: Arial, Helvetica, sans-serif; font-size: 30px;}
+        .menu { height: 120px; width: 100%; background-color: mediumpurple; } 
+        .back_white {background-color: white;}
+        .menu_btn {width: 150px; height: 70; background-color: palegreen;
+        border: 5px solid beige; border-radius:5px; box-shadow: 5px 5px 10px black; 
+        margin-right : 100px; margin-top:15px;
+        }
+        .menu_btn > a {line-height: 70px; text-decoration: none;}
+        .videoset {margin-top :80px; height: 900px; width: 1500px;}
+        .video_border {border : 10px solid gold; border-radius: 5px; padding: 0px 10px;}
+        .aside {height: 2500px; width: 173px; background-color: blue;}
+        .patchsize {height: 300px; width: 1000px;margin-top:10px;}
+        .champsize {height: 450px; width: 1000px;margin-top:10px;}
+        .loginsize {height: 300px; width: 400px; margin-top:10px; margin-left:20px;}
+        .ranksize {height: 450px; width: 400px; margin-top:10px; margin-left:20px;}
+        .blocksize01 {height: 350px; width: 1500px; margin-top:10px;}
+        .blocksize02 {height: 500px; width: 1500px; margin-top:10px;}
+        .blocksize03 {height: 350px; width: 1500px; margin-top:10px;}
+        .articlespace {margin-bottom: 50px;}
+
+    </style>
+</head>
+<body class="background">
+    <div>
+        <header>
+            <img src="project/image/riot.png" class="leftside back_white" alt="라이엇 로고" width="120" >
+            <div class="menu">
+                <div class="rightside hover_btn font_main menu_btn font_center">
+                    <a href="#">제작자</a>
+                </div>
+                <div class="rightside hover_btn font_main menu_btn font_center">
+                    <a href="#">새 소식</a>
+                </div>
+                <div class="rightside hover_btn font_main menu_btn font_center">
+                    <a href="#">챔피언</a>
+                </div>
+                <div class="rightside hover_btn font_main menu_btn font_center">
+                    <a href="#">게임 소개</a>
+                </div>
+            </div>
+        </header>
+        <aside class="aside leftside">
+            공백
+        </aside>
+        <section class="leftside">
+            <article id="introvideo" class="articlespace">
+                <div >
+                    <video class="videoset video_border" autoplay="autoplay" poster="http:\\placehold.it/1920x1080">
+                        <source src="#" type="#">
+                    </video>
+                </div>
+            </article>
+            <article class="video_border blocksize01 articlespace">
+                <div id="patch note" class="patchsize leftside video_border"> 패치노트</div>
+                <div id="login" class="loginsize leftside video_border">로그인</div>
+            </article>
+            <article class="video_border blocksize02 articlespace">
+                <div id="champ" class="champsize leftside video_border">챔피언</div>
+                <div id="rank" class="ranksize leftside video_border">랭커</div>
+            </article>
+            <article class="video_border blocksize03 articlespace">
+                아이템
+            </article>
+        </section>
+        <aside class="aside leftside">
+            공백
+        </aside>
+        <footer>
+            응애
+        </footer>
+    </div>
+   
+</body>
+</html>
