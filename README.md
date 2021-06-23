@@ -1,6 +1,7 @@
 # WebProgramming_build
 
 ## Start 2021.04
+## End 2021.06
 
 ## Project Name : Web Page build
 
@@ -11,4 +12,5 @@
 printf("do it!");
 ```
 
-0411...영상은 용량 문제로 못 올렸습니당..
+
+롤 캐릭터 갤러리와 회원 가입 페이지, 메인 페이지입니다.
