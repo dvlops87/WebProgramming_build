@@ -2,91 +2,80 @@
 <html>
 <head>
     <title>index</title>
-    <style>
-        .background {background-color: white;}
-        .leftside { float: left;}
-        .rightside {float: right;}
-        .hover_btn:hover {background-color: indianred;}
-        .font_center {font-weight:bold; text-align: center;}
-        .font_head { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: larger;}
-        .font_main { font-family: Arial, Helvetica, sans-serif; font-size: 30px;}
-        .font_article { font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 2em;}
-         body > div > section > article > div > div { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;}
-        .menu { height: 120px; width: 100%; background-color: mediumpurple; } 
-        .back_white {background-color: white;}
-        .menu_btn {width: 150px; height: 70; background-color: palegreen;
-        border: 5px solid beige; border-radius:5px; box-shadow: 5px 5px 10px black; 
-        margin-right : 100px; margin-top:15px;
-        }
-        .menu_btn > a {line-height: 70px; text-decoration: none;}
-        .videoset {margin-top :80px; height: 900px; width: 1500px;}
-        .video_border {border : 10px solid gold; border-radius: 5px; padding: 0px 10px;}
-        .aside {height: 2530px; width: 173px; background-color: white;}
-        .patchsize {height: 330px; width: 1000px;margin-top:10px;}
-        .patchdetailsize {height: 280px; width: 950px; overflow-y: scroll;}
-        .champsize {height: 450px; width: 1000px;margin-top:10px;}
-        #itemsize {height: 400px; width: 1462.5px;margin-top:10px;}
-        .loginsize {height: 330px; width: 400px; margin-top:10px; margin-left:20px;}
-        .logindetailsize {height: 330px; width: 400px; margin-top:10px; margin-left:45px;}
-        .ranksize {height: 450px; width: 400px; margin-top:10px; margin-left:20px;}
-        .blocksize01 {height: 380px; width: 1500px; margin-top:10px;}
-        .blocksize02 {height: 500px; width: 1500px; margin-top:10px;}
-        .blocksize03 {height: 440px; width: 1500px; margin-top:10px;}
-        .articlespace {margin-bottom: 30px;}
-        .deco { text-decoration: none;}
-        #loginbtn {height: 50px; width:96px; border: 2px solid black; text-align: center; line-height: 50px;}
-        #findbtn {height: 50px; width:150px; border: 2px solid black; text-align: center; line-height: 50px;}
-        #signbtn {height: 50px; width:150px; border: 2px solid black; text-align: center; line-height: 50px;}
-        .player {height: 50px; width: 150px; text-align: center; line-height: 50px; font-size: 22px;}
-        .point { height: 50px; width: 230px; border: 2px solid black; font-size: 17px; line-height: 50px;}
-        #showchamp {height: 120px; width:310px; border: 2px solid black; text-align: center; line-height: 50px; }
-        #champimg {width:350px;}
-        #champdetails {height: 400px; width: 950px; overflow-y: scroll;}
-        #moreplayer {height: 80px; width: 390px; border: 2px solid black; text-align: center; line-height: 80px; font-size: 35px;}
-        #Itemdetail {height: 330px; width: 1000px; overflow-y: scroll;}
-        #Itemimg {height: 330px; width: 330px;}
-        #company {margin-left: 250px;}
-        #contact {margin-left: 250px; text-align: left;}
-        #logo {margin-left: 400px; }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        window.onload = function () {
+            var champimg = document.getElementById('champimg');
+            var i = 0;
+            champimg.onclick = function() {
+                if(i==0){
+                    champimg.src = 'https://w.namu.la/s/39179f4b1d8616d5d87d8218dd8e519bcd8de067c4302a455a58bc32f33b2e1c2be314f6f48c65597a11375944461679d52f5de001d0ca33513b0f14e8ae87d2d5d0a88a7fd90a7e1ef85f56e3d74875ac9a19c9bcb2d436dcc5a6262ef2e8e05f6159d5b5de47a7cb7e54165bd79dcf';
+                    i=1;
+                }
+                else {
+                    champimg.src = 'image/Garen.jpg';
+                    i=0;
+                }
+            }
+            var ash = document.getElementById('ash');
+            ash.style.backgroundColor = '#65B3F3';
+            var Itemname = document.getElementById('Itemname');
+            var j = 0;
+            Itemname.onclick = function () {
+                if(j==0){
+                    Itemname.innerHTML = '크라켄 학살자';
+                    j=1;
+                }
+                else {
+                    Itemname.innerHTML = 'Kraken Slayer';
+                    j=0;
+
+                }
+            }
+    }
+    </script>
 </head>
 <body class="background">
     <div>
         <header>
-            <img src="image/riot.png" class="leftside back_white" alt="라이엇 로고" width="120" >
-            <div class="menu">
-                <div class="rightside hover_btn font_main menu_btn font_center">
+            <div class="menu menubar hidden">
+                <img src="image/riot.png" class="leftside" alt="라이엇 로고" width="120" >
+                <div id="builder" class="hover_btn font_main menu_btn font_center">
                     <a href="#">제작자</a>
                 </div>
-                <div class="rightside hover_btn font_main menu_btn font_center">
+                <div id="news" class="hover_btn font_main menu_btn font_center">
                     <a href="#">새 소식</a>
                 </div>
-                <div class="rightside hover_btn font_main menu_btn font_center">
-                    <a href="#">챔피언</a>
+                <div id="champbtn" class="hover_btn font_main menu_btn font_center">
+                    <a href="pinterest_end.html">갤러리</a>
                 </div>
-                <div class="rightside hover_btn font_main menu_btn font_center">
+                <div id="intro" class="hover_btn font_main menu_btn font_center">
                     <a href="#">게임 소개</a>
                 </div>
             </div>
         </header>
-        <aside id="leftBlank" class="aside leftside">
-            공백
-        </aside>
-        <section class="leftside">
+
+        <section class="leftside section">
             <article id="introvideo" class="articlespace font_article">
                 <div >
-                    <video class="videoset video_border" autoplay="autoplay" poster="http:\\placehold.it/1920x1080">
-                        <source src="#" type="#">
+                    <video class="videoset video_border" controls="controls" autoplay="autoplay" muted="muted">
+                        <source src="video/Warriors.webm" type="video/webm">
                     </video>
                 </div>
             </article>
             <article id="Patchnote" class="video_border blocksize01 articlespace font_article">
                 <div id="patch note" class="patchsize leftside "> Patch Note (11.02)
-                    <div class="video_border patchdetailsize">
-                    Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..Patch Note Details..
+                    <div class="subborder patchdetailsize">
+                        &nbsp; 아직 우울한 겨울에서 헤어나오지 못하셨다 해도 걱정하지 마세요. <br>
+                        &nbsp;활기찬 봄을 여는 우주적 그루브를 준비했습니다.<br>
+                        &nbsp;우선 차가운 바람이 부는 프렐요드로 떠나 꽁꽁 얼어붙은 챔피언 <i id="ash"> (애쉬, 브라움 및 리산드라) </i> 을 따듯하게 녹여줍니다.<br>
+                        &nbsp;다음으로 밴들 시티에 방문하여 트리스타나의 대포를 티모에게 건네줍니다. 가끔은 무시무시한 악마도 쓸 때가 있기 때문입니다. 잠시 시간을 내어 음울한 그림자 군도로 이동해 요릭의 기분도 북돋아 줍니다. 요릭에게는 정말 오랜만에 찾아온 손님이겠네요. 마지막으로 하단 공격로에 정차하여 다른 서포터에 비해 압도적인 위력을 자랑하는 서포터 3명을 조정합니다.<br>
+                        &nbsp;여기에 몇 가지 아이템 변경사항을 추가하면 이번 패치 내용을 전부 알아봤다고 할 수 있죠! <br>
+                        &nbsp;협곡에서 흥겨운 시간을 보내시기를 바라며, 다음 패치에서 뵙겠습니다.<br>
+                        &nbsp;여러분의 영원한 GM <가렌>
                     </div>
                 </div>
-                <div id="login" class="loginsize leftside video_border">Login
+                <div id="login" class="loginsize leftside subborder">Login
                     <div class="logindetailsize">
                         <table>
                             <form>
@@ -122,7 +111,7 @@
                                 </td>
                                 <td>
                                     <div id="signbtn">
-                                        <a href="#" class="deco">Sign Up</a>
+                                        <a href="join.html" class="deco">Sign Up</a>
                                     </div>
                                 </td>
                             </tr>
@@ -141,12 +130,22 @@
             </article>
             <article id="Today'sChampion" class="video_border blocksize02 articlespace font_article">
                 <div id="champ" class="champsize leftside"> Today's Champion
-                    <div id="champdetails" class="video_border rightside">
-                        <img src="image/riot.png" id="champimg" class="rightside"  alt="챔피언이미지" >
-                        Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...Champion's Details...
-                    </div>
+                    <div id="champdetails" class="subborder leftside">
+                        <img src="image/Garen.jpg" id="champimg" class="rightside"  alt="챔피언이미지">
+                        이름 : 가렌<br>
+                        역할군 : 전사<br>
+                        난이도 : 보통<br>
+                        <hr>
+                        가렌은 불굴의 선봉대를 이끄는 고결하고 자긍심 강한 전사다.<br>
+                         선봉대 내에서 인망이 두터울 뿐 아니라 심지어 적에게도 존경을 받지만, 그가 대대로 데마시아와 데마시아의 이상을 수호하는 임무를 맡은 크라운가드 가문의 자손이기 때문은 아니다. <br>
+                         가렌은 마법 저항력을 갖춘 방어구와 거대한 대검으로 무장하고, 언제라도 마법사에 맞서 정당한 검으로 진정한 칼바람을 일으킬 준비가 되어 있다.
+                         <br>
+                         <audio controls="controls">
+                            <source src="audio/garen.mp3" type="audio/mp3">
+                        </audio>
+                        </div>
                 </div>
-                <div id="rank" class="ranksize leftside video_border">Now's Ranker<br>
+                <div id="rank" class="ranksize leftside subborder">Now's Ranker<br>
                     <table>
                         <tr>
                             <td>
@@ -156,7 +155,7 @@
                             </td>
                             <td>
                                 <div class="point">
-                                    <img src="/project/image/riot.png" class="leftside" width="50px">
+                                    <img src="image/grandmaster.png" class="leftside" width="50px">
                                     <div class="rightside"> GrandMaster 300</div>
                                 </div>
                             </td>
@@ -172,7 +171,7 @@
                             </td>
                             <td>
                                 <div class="point">
-                                    <img src="/project/image/riot.png" class="leftside" width="50px">
+                                    <img src="image/grandmaster.png" class="leftside" width="50px">
                                     <div class="rightside"> GrandMaster 30</div>
                                 </div>
                             </td>
@@ -188,13 +187,13 @@
                             </td>
                             <td>
                                 <div class="point">
-                                    <img src="/project/image/riot.png" class="leftside" width="50px">
+                                    <img src="image/grandmaster.png" class="leftside" width="50px">
                                     <div class="rightside"> Master 70</div>
                                 </div>
                             </td>
                         </tr>
                     </table>
-                    <hr><br>
+                    <hr>
                     <div id="moreplayer">
                         <a href="http://fow.kr/ranking#1" class="deco">More Ranker</a></div>
                 </div>
@@ -202,20 +201,25 @@
             <article id="Today'sItem" class="video_border blocksize03 articlespace font_article">
                 <div id="itemsize" class="leftside">
                     Today's Item<br>
-                    <div id="Itemdetail" class="video_border leftside">
-                        sdaf
+                    <div id="Itemdetail" class="subborder leftside">
+                        이름 : 크라켄 학살자<br>
+                        가격 : 3400 <br>
+                        공격력  65 증가<br>
+                        공격 속도  25% 증가 <br>
+                        치명타 확률 20% 증가 <br>
+                        <i>벼락</i> : 세 번째 기본 공격을 가할 때마다 60+추가 공격력의 45%에 해당하는 고정 피해를 추가로 입힙니다.<br>
+                        <hr>
+                        <b>신화급 기본 효과</b> : 다른 모든 전설급 아이템에 공격속도 10% 증가
                     </div>
-                    <div id="Itemimg" class="video_border rightside">
-                        <img src="/project/image/riot.png" alt="템트리" width="330">
+                    <div id="Itemimg" class="subborder rightside">
+                        <img src="image/item.png" alt="템트리" width="330">
+                        <p id="Itemname">Kraken Slayer</p>
                     </div>
                 </div>
             </article>
         </section>
-        <aside id="rightBlank" class="aside leftside">
-            공백
-        </aside>
-        <footer id="underBar">
-            <hr>
+
+        <footer id="underBar" class="white">
             <div id="company" class="leftside">
                 <table>
                     <tr>
@@ -247,13 +251,12 @@
             <div id="logo" class="leftside">
                 <table>
                     <tr>
-                        <td><img src="/project/image/riot.png" alt="로고" width="80"></td>
-                        <td><img src="/project/image/riot.png" alt="다른 로고" width="100"></td>
+                        <td><img src="image/league-of-legends-computer-icons-ongamenet-starleague-video-game-electronic-sports-voice-actor-e2215679f999d279ae207bc8993804c1.png" alt="로고" width="80"></td>
+                        <td><img src="image/logo.png" alt="다른 로고" width="200"></td>
                     </tr>
                 </table>
             </div>
         </footer>
     </div>
-   
 </body>
 </html>
