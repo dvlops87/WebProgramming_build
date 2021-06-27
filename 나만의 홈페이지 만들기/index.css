@@ -1,0 +1,71 @@
+        body {margin: 0px;}
+        .menubar {background: -webkit-linear-gradient(top,  rgba(22,145,176,1) 0%,rgba(124,228,240,0) 100%);}
+        .background {background-color:black;}
+        .leftside { float: left;}
+        .rightside {float: right;}
+        .hover_btn:hover {background-color: indianred;}
+        .font_center {font-weight:bold; text-align: center;}
+        .font_head { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: larger; color: white;}
+        .font_main { font-family: Arial, Helvetica, sans-serif; font-size: 30px; color: white;}
+        .font_article { font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 2em; color: #DDD470;}
+        body > div > section > article > div > div { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: white;}
+        .menu { height: 120px; width: 100%; } 
+        .back_white {background-color: black;}
+        .menu_btn {width: 150px; height: 70; background-color: #DDD470;
+            border: 5px solid beige; border-radius:5px; box-shadow: 5px 5px 10px black;
+            margin-top:15px; position: absolute;
+        }
+        .white {color: white;}
+        .menu_btn > a {line-height: 70px; text-decoration: none;}
+        .videoset {margin-top :80px; height: 900px; width: 1500px;}
+        .video_border {border : 10px solid gold; border-radius: 5px; padding: 0px 10px;}
+        /* .aside {height: 2530px; width: 173px;} */
+        .patchsize {height: 330px; width: 1000px;margin-top:10px;}
+        .patchdetailsize {height: 280px; width: 950px; overflow-y: scroll;}
+        .champsize {height: 450px; width: 1000px;margin-top:10px;}
+        #itemsize {height: 400px; width: 1462.5px;margin-top:10px;}
+        .loginsize {height: 330px; width: 400px; margin-top:10px; margin-left:20px;}
+        .logindetailsize {height: 330px; width: 400px; margin-top:10px; margin-left:45px;}
+        .ranksize {height: 450px; width: 400px; margin-top:10px; margin-left:20px;}
+        .blocksize01 {height: 380px; width: 1500px; margin-top:10px;}
+        .blocksize02 {height: 500px; width: 1500px; margin-top:10px;}
+        .blocksize03 {height: 440px; width: 1500px; margin-top:10px;}
+        .articlespace {margin-bottom: 30px;}
+        .deco { text-decoration: none;}
+        #loginbtn {height: 50px; width:96px; border: 2px solid #65B3F3; text-align: center; line-height: 50px;}
+        #findbtn {height: 50px; width:150px; border: 2px solid #65B3F3; text-align: center; line-height: 50px;}
+        #signbtn {height: 50px; width:150px; border: 2px solid #65B3F3; text-align: center; line-height: 50px;}
+        .player {height: 50px; width: 150px; text-align: center; line-height: 50px; font-size: 22px;}
+        .point { height: 50px; width: 230px;  font-size: 17px; line-height: 50px;}
+        #showchamp {height: 120px; width:310px; border: 2px solid #65B3F3; text-align: center; line-height: 50px; }
+        #champimg {width : 600px;}
+        #champdetails {height: 400px; width: 950px; overflow-y: scroll;}
+        #moreplayer {height: 80px; width: 390px; border: 2px solid #65B3F3; text-align: center; line-height: 80px; font-size: 35px; margin-top: 0px; margin-left: 3px;}
+        #Itemdetail {height: 330px; width: 1000px; overflow-y: scroll;}
+        #Itemimg {height: 330px; width: 330px;}
+        #company {position: absolute; left: 100px;}
+        #contact {position: absolute; left: 800px; text-align: left;}
+        #logo {position: absolute; left: 1300px;}
+        .subborder {border : 5px solid #65B3F3; border-radius: 5px; }
+        #Itemname {text-align: center; color: #DDD470; font-size: larger;}
+        .section { width: 75%; margin-left: 9%;}
+        .hidden{overflow: hidden;}
+        #builder{left: 35%;}
+        #news{left:50%}
+        #champ {left: 65%;}
+        #champbtn {left: 65%;}
+        #intro {left: 80%;}
+        #underBar {width: 100%; height: fit-content; overflow: hidden;}
+        
+        @media screen and (max-width: 900px) {
+            .menu { height: 1000px; width: 300px; } 
+            .menu_btn {width: 150px; height: 70; background-color: #DDD470;
+                border: 5px solid beige; border-radius:5px; box-shadow: 5px 5px 10px black;
+            }
+            
+            #builder{left: 5%; top: 20%; position: fixed;}
+            #news{left:5%; top: 35%; position: fixed;}
+            #champbtn {left: 5%; top: 50%; position: fixed;}
+            #intro {left: 5%; top: 65%; position: fixed;}
+            .menubar {position: fixed; background: -webkit-linear-gradient(left,  rgba(22,145,176,1) 0%,rgba(124,228,240,0) 100%); }
+        }

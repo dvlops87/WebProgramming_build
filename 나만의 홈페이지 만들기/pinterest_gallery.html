@@ -1,0 +1,1817 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Champion Gallery</title> 
+    <!-- 초기화 -->
+    <style>
+        * {
+            margin: 0; padding: 0;
+            font-family: 'Malgun Gotic', sans-serif;
+        }
+
+        a { text-decoration: none; }
+        img { border: 0; }
+        li { list-style: none; }
+        html { background: #f7f5f5; }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main-header {
+            height: 130px;
+            background: #faf7f7;
+
+            position: relative;
+        }
+
+        .leftmove {
+            width: 15%;
+            padding-top : 10px;
+            margin-left: 42%;
+        }
+
+        .header-menu {
+            float: right;
+        }
+    </style>
+    <!-- 드롭다운 -->
+    <style>
+        .outer-menu {
+            float: left;
+            width: 100px; height: 20px;
+            margin-top:5px;
+            line-height: 20px;
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            z-index: 9999;
+        }
+
+        .outer-menu:hover { background: #E1DFDF; }
+
+        .inner-menu {
+            display: none;
+            background: #FFFFFF;
+            margin-top: 10px;
+            width: 100%;
+
+            border-top: 1px solid #cccaca;
+            box-shadow: 0 2px 4px rgba(34,25,25,0.5);
+        }
+
+        .inner-menu a {
+            display: block;
+                padding: 5px 10px;
+                z-index: 5000;
+        }
+
+        .inner-menu a:hover { background: #E1DFDF; }
+    </style>
+    <!-- 네비게이션 메뉴 -->
+    <style>
+        #main-navigation {
+            height: 35px;
+            background: #faf7f7;
+            border-top: 1px solid #cfcaca;
+            box-shadow: 1px 3px 3px rgba(34, 25, 25, 0.4);
+        }
+
+        #main-navigation > ul {
+            margin-left: 42%;
+            overflow:hidden;
+        }
+
+        #main-navigation > ul > li {
+            display: inline;
+
+            padding: 0 5px;
+
+            line-height: 30px;
+            font-size: 13px;
+            color: #524D4D;
+            text-shadow: 0 1px 1px white;
+        }
+
+        #main-navigation > ul > li:hover { 
+            background: #E1DFDF;
+            border-radius: 2px;
+        }
+    </style>
+    <!-- 검색 양식 -->
+    <style>
+        .header-search-form {
+            height: 26px;
+            padding: 7px;
+        }
+
+        .input-search {
+            display: block;
+            float: left;
+
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            border-radius: 15px 0 0 15px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+
+            width: 120px; height: 24px;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+            color: #555555;
+        }
+
+        .input-search:focus {
+            border-color: rgba(82, 168, 236, 0.8);
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-search-submit {
+            display: block;
+            float: left;
+
+            width: 50px; height: 26px;
+            border-radius: 0 15px 15px 0;
+            border: 1px solid #CCCCCC;
+
+            margin-left: -1px;
+
+            vertical-align: top;
+            display: inline-block;
+        }
+
+    </style>
+    <!-- 종이 스타일 -->
+    <style>
+        .paper {
+            width: 190px;
+            margin-top: 10px;
+            padding: 15px 15px 0;
+            font-size: 11px;
+            background: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+        }
+
+        .paper-content {
+            margin: 0 -15px;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #F2F0F0;
+
+            overflow: hidden;
+        }
+
+        .paper-description {
+            margin: 10px 0;
+        }
+
+        .paper-link {
+            display: block;
+            float: left;
+        }
+
+        .paper-text {
+            float: left;
+            width: 150px;
+            margin-left: 10px;
+        }
+    </style>
+    <!-- 섹션 -->
+    <style>
+        /* 미디어 쿼리를 지원하지 않는 웹 브라우저 */
+        .display {
+            display:none;
+        }
+
+        #main-section {
+            width: 920px;
+            margin: 0 auto;
+        }
+
+        /* 3줄 */
+        @media (max-width: 919px) {
+            #main-section { width: 690px; }
+        } 
+
+        /* 4줄 */
+        @media (min-width: 920px) and (max-width:1149px) {
+            #main-section { width: 920px; }
+        } 
+
+        /* 5줄 */
+        @media (min-width:1150px) and (max-width:1379px) {
+            #main-section { width: 1150px; }
+        }
+
+        /* 6줄 */
+        @media (min-width:1380px) {
+            #main-section { width: 1380px; }
+        }
+    </style>
+    <!-- 라이트박스 -->
+    <style>
+        .darken-background {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        .darken-background2 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox2 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+
+        
+        .darken-background3 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox3 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background4 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox4 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background5 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox5 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background6 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox6 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background7 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox7 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background8 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox8 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background9 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox9 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background10 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox10 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background11 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox11 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background12 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox12 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background13 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox13 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background14 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox14 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background15 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox15 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background16 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox16 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background17 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox17 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background18 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox18 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+/*         
+        .darken-background19 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox19 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+        
+        .darken-background20 {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        .lightbox20 {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        } */
+        .user-information {  overflow: hidden;  text-align: left; }
+        .user-information-image { float: left; width: 70px; }
+        .user-information-text { float: right; width: 620px;  }
+        .lightbox-splitter { margin: 10px 0; }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+    <script>
+        // 풀다운 메뉴
+        $(document).ready(function () {
+            // 풀다운 메뉴
+            $('.outer-menu').hover(function () {
+                $(this).find('.inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.inner-menu').css('display', 'none');
+            });
+        });
+
+        // 페이지
+        $(document).ready(function () {
+            // 이미지 로드 확인
+            $('#main-section').imagesLoaded(function () {
+                // jQuery Masonry 플러그인 적용
+                $('#main-section').masonry({
+                    itemSelector: '.paper',
+                    columnWidth: 230,
+                    isAnimated: true
+                });
+            });
+});
+          
+        $(document).ready(function () {
+            var appendDocument = function() {
+                clone221 = $('#main-section').clone(); //무한 스크롤 해야하는 부분 복사해서 새로운 태그 생성
+                $('section#main-section').after(clone221); // 태그를 무한 스크롤 해야하는 부분 뒤에 붙임
+            }
+
+            $(document).scroll(function () {
+                var scollHeight = $(window).scrollTop() + $(window).height();
+                var documentHeight = $(document).height();
+
+                if(scollHeight +50 > documentHeight){
+                    appendDocument();
+                }
+            });
+        });
+
+        // 라이트 박스
+        $(document).scroll(function () { // 원래는 scroll 이 아니라 ready 였음  
+            function showLightBox() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background').show();
+                $('.darken-background').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+
+            function hideLightBox() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+
+            // 라이트박스 제거 이벤트
+            $('.darken-background').click(function () {
+                hideLightBox();
+            });
+              // 클릭 이벤트 연결
+            $('.champ1').click(function () {
+                showLightBox();
+            });
+            $('.lightbox').click(function (event) {
+                event.stopPropagation()
+            });
+
+
+            function showLightBox2() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background2').show();
+                $('.darken-background2').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox2() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background2').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background2').click(function () {
+                hideLightBox2();
+            });
+              // 클릭 이벤트 연결
+            $('.champ2').click(function () {
+                showLightBox2();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox2').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox3() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background3').show();
+                $('.darken-background3').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox3() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background3').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background3').click(function () {
+                hideLightBox3();
+            });
+              // 클릭 이벤트 연결
+            $('.champ3').click(function () {
+                showLightBox3();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox3').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox4() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background4').show();
+                $('.darken-background4').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox4() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background4').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background4').click(function () {
+                hideLightBox4();
+            });
+              // 클릭 이벤트 연결
+            $('.champ4').click(function () {
+                showLightBox4();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox4').click(function (event) {
+                event.stopPropagation()
+            });
+
+
+            function showLightBox5() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background5').show();
+                $('.darken-background5').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox5() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background5').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background5').click(function () {
+                hideLightBox3();
+            });
+              // 클릭 이벤트 연결
+            $('.champ5').click(function () {
+                showLightBox3();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox5').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox6() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background6').show();
+                $('.darken-background6').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox6() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background6').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background6').click(function () {
+                hideLightBox6();
+            });
+              // 클릭 이벤트 연결
+            $('.champ6').click(function () {
+                showLightBox6();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox6').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+            
+
+            function showLightBox7() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background7').show();
+                $('.darken-background7').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox7() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background7').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background7').click(function () {
+                hideLightBox7();
+            });
+              // 클릭 이벤트 연결
+            $('.champ7').click(function () {
+                showLightBox7();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox7').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+            
+
+            function showLightBox8() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background8').show();
+                $('.darken-background8').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox8() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background8').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background8').click(function () {
+                hideLightBox8();
+            });
+              // 클릭 이벤트 연결
+            $('.champ8').click(function () {
+                showLightBox8();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox8').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+            
+
+            function showLightBox9() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background9').show();
+                $('.darken-background9').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox9() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background9').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background9').click(function () {
+                hideLightBox9();
+            });
+              // 클릭 이벤트 연결
+            $('.champ9').click(function () {
+                showLightBox9();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox9').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+            
+
+            function showLightBox10() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background10').show();
+                $('.darken-background10').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox10() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background10').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background10').click(function () {
+                hideLightBox10();
+            });
+              // 클릭 이벤트 연결
+            $('.champ10').click(function () {
+                showLightBox10();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox10').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox11() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background11').show();
+                $('.darken-background11').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox11() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background11').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background11').click(function () {
+                hideLightBox11();
+            });
+              // 클릭 이벤트 연결
+            $('.champ11').click(function () {
+                showLightBox11();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox11').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox12() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background12').show();
+                $('.darken-background12').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox12() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background12').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background12').click(function () {
+                hideLightBox12();
+            });
+              // 클릭 이벤트 연결
+            $('.champ12').click(function () {
+                showLightBox12();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox12').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox13() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background13').show();
+                $('.darken-background13').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox13() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background13').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background13').click(function () {
+                hideLightBox13();
+            });
+              // 클릭 이벤트 연결
+            $('.champ13').click(function () {
+                showLightBox13();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox13').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox14() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background14').show();
+                $('.darken-background14').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox14() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background14').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background14').click(function () {
+                hideLightBox14();
+            });
+              // 클릭 이벤트 연결
+            $('.champ14').click(function () {
+                showLightBox14();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox14').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox15() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background15').show();
+                $('.darken-background15').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox15() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background15').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background15').click(function () {
+                hideLightBox15();
+            });
+              // 클릭 이벤트 연결
+            $('.champ15').click(function () {
+                showLightBox15();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox15').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox16() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background16').show();
+                $('.darken-background16').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox16() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background16').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background16').click(function () {
+                hideLightBox16();
+            });
+              // 클릭 이벤트 연결
+            $('.champ16').click(function () {
+                showLightBox16();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox16').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox17() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background17').show();
+                $('.darken-background17').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox17() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background17').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background17').click(function () {
+                hideLightBox17();
+            });
+              // 클릭 이벤트 연결
+            $('.champ17').click(function () {
+                showLightBox17();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox17').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+
+            function showLightBox18() {
+                // 라이트박스를 보이게 합니다.
+                $('.darken-background18').show();
+                $('.darken-background18').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+            function hideLightBox18() {
+                // 라이트박스를 안 보이게 합니다.
+                $('.darken-background18').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+            // 라이트박스 제거 이벤트
+            $('.darken-background18').click(function () {
+                hideLightBox18();
+            });
+              // 클릭 이벤트 연결
+            $('.champ18').click(function () {
+                showLightBox18();
+            });
+            // 라이트박스 제거 이벤트 보조
+            $('.lightbox18').click(function (event) {
+                event.stopPropagation()
+            });
+
+            
+        });
+    </script>
+</head> 
+<body> 
+    <!-- 헤더 --> 
+    <header id="main-header"> 
+        <!-- <div class="header-search-form"> 
+            <form> 
+                <input type="search" class="input-search" /> 
+                <input type="submit" class="input-search-submit" value="검색" /> 
+            </form> 
+        </div>  -->
+        <!-- <h1 class="header-title">Champion Gallery</h1> -->
+        <div class="leftmove">
+            <img width=100%; object-fit:contain src="image/logo.png"></img>
+        </div>
+        <div class="header-menu"> 
+            <ul class="outer-menu"> 
+                <li> 
+                    <a href="#">종류</a> 
+                    <ul class="inner-menu"> 
+                        <li><a href="#">전사</a></li> 
+                        <li><a href="#">원거리 공격</a></li> 
+                        <li><a href="#">탱커</a></li> 
+                        <li><a href="#">마법사</a></li> 
+                        <li><a href="#">근거리 공격</a></li> 
+                        <li><a href="#">지원형</a></li> 
+                    </ul> 
+                </li> 
+            </ul> 
+            <ul class="outer-menu"> 
+                <li> 
+                    <a href="#">티어</a> 
+                    <ul class="inner-menu"> 
+                        <li><a href="#">1티어</a></li> 
+                        <li><a href="#">2티어</a></li> 
+                        <li><a href="#">3티어</a></li> 
+                        <li><a href="#">4티어</a></li> 
+                    </ul> 
+                </li> 
+            </ul> 
+        </div> 
+    </header> 
+    <!-- 네비게이션 메뉴 --> 
+    <nav id="main-navigation"> 
+        <ul> 
+            <li><a href="#">Maker</a></li> 
+            <li><a href="#">Values</a></li> 
+            <li><a href="#">Skills</a></li> 
+            <li><a href="#">Nations</a></li> 
+            <li><a href="#">Concept</a></li> 
+        </ul> 
+    </nav> 
+    <!-- 본문 영역 --> 
+    <section id="main-section" > 
+        <div class="bbb">
+            
+        <div class="paper champ1"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_garen.jpg" /></a> 
+            </div> 
+            <p class="paper-description">가렌</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a> 
+                <p class="paper-text">내 검과 심장은 데마시아의 것이다!</p> 
+            </div> 
+        </div> 
+         
+        <div  class="paper champ2"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_galio.jpg" /></a> 
+            </div> 
+            <p class="paper-description">갈리오</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a> 
+                <p class="paper-text">힘을 발휘할 시간이군!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ3"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_gangplank.jpg" /></a> 
+            </div> 
+            <p class="paper-description">갱플랭크</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">지옥의 불길도, 죽음의 심연도, 이 몸을 넘볼 수는 없다.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ4"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_gragas.jpg" /></a> 
+            </div> 
+            <p class="paper-description">그라가스</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">니가 사는 술이라면 나도 끼지.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ5"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_graves.jpg" /></a> 
+            </div> 
+            <p class="paper-description">그레이브즈</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">내가 돌아왔다.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ6"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_gwen.jpg" /></a> 
+            </div> 
+            <p class="paper-description">그웬</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">자신 있게! 어깨 펴고, 가위 들고!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ7"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_gnar.jpg" /></a> 
+            </div> 
+            <p class="paper-description">나르</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">나르! 갸다!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ8"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_nami.jpg" /></a> 
+            </div> 
+            <p class="paper-description">나미</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">파도가 뭘 싣고 올진 나한테 달렸죠.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ9"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_nasus.jpg" /></a> 
+            </div> 
+            <p class="paper-description">나서스</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">삶과 죽음의 순환은 계속된다. 우리는 살 것이고, 저들은 죽을 것이다.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ10"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_nautilus.jpg" /></a> 
+            </div> 
+            <p class="paper-description">노틸러스</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">물이 깊으니... 조심해...</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ11"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_nocturne.jpg" /></a> 
+            </div> 
+            <p class="paper-description">녹턴</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">어둠을… 맞이하라…!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ12"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_nunu.jpg" /></a> 
+            </div> 
+            <p class="paper-description">누누</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">모험은 역시 친구랑 같이 해야 신나는 법!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ13"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_nidalee.jpg" /></a> 
+            </div> 
+            <p class="paper-description">니달리</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">야생을 두려워하게 만들어주지.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ14"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_neeko.jpg" /></a> 
+            </div> 
+            <p class="paper-description">니코</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">니코? 정말 멋진 선택이야!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ15"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_darius.jpg" /></a> 
+            </div> 
+            <p class="paper-description">다리우스</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">오직 나만이 승리로 이끌 수 있다.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ16"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_diana.jpg" /></a> 
+            </div> 
+            <p class="paper-description">다이애나</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">새로운 달이 떠오르고 있다.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ17"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_draven.jpg" /></a> 
+            </div> 
+            <p class="paper-description">드레이븐</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">드레이븐의 리그에 오신 것을 환영합니다.</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper champ18"> 
+            <div class="paper-holder"> 
+                <a><img width="190" src="image/RiotX_ChampionList_ryze.jpg" /></a> 
+            </div> 
+            <p class="paper-description">라이즈</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="image/poros.jpg"   width="30" /></a>
+                <p class="paper-text">대재앙에 한발 앞서가는 거다!</p> 
+            </div> 
+        </div> 
+
+        </div>
+    </section> 
+    <!-- 라이트박스 --> 
+    <section id="lightBoxSection">
+    <div id="champ01" class="darken-background">
+        <div class="lightbox"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>가렌</h3>
+                    <p>내 검과 심장은 데마시아의 것이다!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Garen.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+
+    <div id="champ02" class="darken-background2">
+        <div class="lightbox2"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>갈리오</h3>
+                    <p>힘을 발휘할 시간이군!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Galio_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ03" class="darken-background3">
+        <div class="lightbox3"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>갱플랭크</h3>
+                    <p>지옥의 불길도, 죽음의 심연도, 이 몸을 넘볼 수는 없다.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Gangplank_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ04" class="darken-background4">
+        <div class="lightbox4"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>그라가스</h3>
+                    <p>니가 사는 술이라면 나도 끼지</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Gragas_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ05" class="darken-background5">
+        <div class="lightbox5"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>그레이브즈</h3>
+                    <p>내가 돌아왔다.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Graves_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ06" class="darken-background6">
+        <div class="lightbox6"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>그웬</h3>
+                    <p>자신 있게! 어깨 펴고, 가위 들고!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Gwen_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ07" class="darken-background7">
+        <div class="lightbox7"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>나르</h3>
+                    <p>나르! 갸다!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Gnar_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div id="champ08"  class="darken-background8">
+        <div class="lightbox8"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>나미</h3>
+                    <p>파도가 뭘 싣고 올진 나한테 달렸죠.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Nami_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+    
+
+    
+    <div id="champ09"  class="darken-background9">
+        <div class="lightbox9"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>나서스</h3>
+                    <p>삶과 죽음의 순환은 계속된다. 우리는 살 것이고, 저들은 죽을 것이다.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Nasus_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div id="champ010"  class="darken-background10">
+        <div class="lightbox10"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>노틸러스</h3>
+                    <p>물이 깊으니... 조심해...</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Nautilus_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ011" class="darken-background11">
+        <div class="lightbox11"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>녹턴</h3>
+                    <p>어둠을… 맞이하라…!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Nocturne_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ012" class="darken-background12">
+        <div class="lightbox12"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>누누</h3>
+                    <p>모험은 역시 친구랑 같이 해야 신나는 법!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Nunu_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div id="champ013"  class="darken-background13">
+        <div class="lightbox13"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>니달리</h3>
+                    <p>야생을 두려워하게 만들어주지.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Nidalee_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ014" class="darken-background14">
+        <div class="lightbox14"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>니코</h3>
+                    <p>니코? 정말 멋진 선택이야!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Neeko_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+    
+
+    
+    <div  id="champ015" class="darken-background15">
+        <div class="lightbox15"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>다리우스</h3>
+                    <p>오직 나만이 승리로 이끌 수 있다!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Darius_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ016" class="darken-background16">
+        <div class="lightbox16"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>다이애나</h3>
+                    <p>오직 나만이 승리로 이끌 수 있다.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Diana_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div id="champ017"  class="darken-background17">
+        <div class="lightbox17"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>드레이븐</h3>
+                    <p>드레이븐의 리그에 오신 것을 환영합니다.</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Draven_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+    <div  id="champ018" class="darken-background18">
+        <div class="lightbox18"> 
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="image/poros.jpg"   width="70" />
+                </a> 
+                <div class="user-information-text">
+                    <h3>라이즈</h3>
+                    <p>대재앙에 한발 앞서 나가는거다!</p>
+                </div> 
+            </div>
+            <hr class="lightbox-splitter" />
+            <img src="image/Ryze_0.jpg" width="650"/> 
+        </div> 
+    </div> 
+
+    
+</section>
+</body> 
+</html> 
